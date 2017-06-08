@@ -13,8 +13,8 @@ If you are familiar with Node.js and want to learn Go, so this is right for you.
 * string common operates
 * send http requests
 * create web server
-* package management
-* get current dir
+* module
+* Get current dir
 * file common operates
 * tools
 
@@ -248,6 +248,70 @@ for (var t of iterator) {
 //
 for key, val := range mapObject {
 
+}
+```
+
+
+#### module
+
+```js
+// === ES6
+require('path');
+// export as whole module
+module.exports = function () {
+    console.log('hello');
+}
+// export as part of module
+exports.hello = function () {
+    console.log('hello');
+}
+// === ES7
+export default const a = 'hello';
+import hello from 'hello'
+//
+export const a = 'hello'
+import {hello} from 'hello'
+import * as helloModule from 'hello'
+```
+
+```go
+package hello  // declare module
+
+func Hello () {  // Name's first letter is uppercase so it is exorted
+    println("hello")
+}
+
+import "path" // import builtin package
+import "golang.org/x/net"  // import third party package
+```
+
+#### create web server
+
+```js
+var http = require("http");
+http.createServer(function (request, response) {
+	response.writeHead(200, {'Content-Type': 'text/plain'});
+	response.end('Hello World\n');
+}).listen(8888);
+console.log('Server running at http://127.0.0.1:8888/');
+```
+
+```go
+package main
+
+import (
+    "net/http"
+    "fmt"
+    "log"
+)
+
+func main () {
+    http.HandleFunc("/", handler) // each request calls handler
+    log.Fatal(http.ListenAndServe("localhost:8000", nil))
+}
+
+func handler(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Hello World")
 }
 ```
 
