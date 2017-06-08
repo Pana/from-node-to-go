@@ -1,21 +1,22 @@
 # From Node To Go
-If you are familiar with Node.js and want to learn Go, so this is right for you. And same to Goher
+If you are familiar with Node.js and want to learn Go, so this is right for you. And same to Goher.
 
-* 运行代码
-* 声明变量
-* 循环
-* 遍历
+* Run code
+* Hello world
+* Declare variable
+* For loop
+* Interate
 * if/else
-* 方法
-* 类型转换
-* array常用操作
-* string常用操作
-* 发送http请求
-* 创建web server
-* 导入, 包管理
-* 获取当前路径
-* 读取文件
-* 工具
+* function
+* type convert
+* array common operates
+* string common operates
+* send http requests
+* create web server
+* package management
+* get current dir
+* file common operates
+* tools
 
 
 #### Run
@@ -45,14 +46,14 @@ func main() {
 #### data type
 
 ```js
-Number, String, Boolean, null, undefined, Array, Object, Function
+Number, String, Boolean, Array, Object, Function, null, undefined
 ```
 
 ```go
-int, float32, byte, string, bool, nil, array, slice, map, struct, interface, chan, func, complex64, uintptr
+int, float32, byte, string, bool, rune, nil, array, slice, map, struct, interface, chan, func, complex64, uintptr
 ```
 
-#### declare variable
+#### Declaring variables
 
 ```js
 var a;
@@ -64,33 +65,37 @@ const F = {hello: 1};
 ```
 
 ```go
-// var 变量名字 类型 = 表达式
-var a int = 1
-// 其中“类型”或“= 表达式”两个部分可以省略其中的一个。如果省略的是类型信息，那么将根据初始化表达式来推导变量的类型信息。如果初始化表达式被省略，那么将用零值初始化该变量
+// 直接声明一个变量
 var a int
+a = 1
+// 声明变量并赋初始值
+var a int = 1
+// 省略类型, 自动推到
 var b = 2
 // 声明多个变量
 var i, b, k int
-// 声明并赋值
+// 声明多个变量
+var width, height = 100, 50
 var b, f, s = true, 2.3, "four"
+var (
+    name   = "naveen"
+    age    = 29
+    height int
+)
 // 常量
 const freezingF, boilingF = 32.0, 212.0
 // 简短声明方式
 b := 1
-// 声明多个
-const (
-    a1 = 1
-    a2 = 2
-    a3 = 3
-)
 // 使用 _ 表示定义, 而不使用
 a, _ = os.Open("./file")
+// var 变量名字 类型 = 表达式
+// 其中“类型”或“= 表达式”两个部分可以省略其中的一个。如果省略的是类型信息，那么将根据初始化表达式来推导变量的类型信息。如果初始化表达式被省略，那么将用零值初始化该变量
 ```
 
 #### 内建函数或变量
 
 ```js
-__dirname, setTimeout, setInterval
+__dirname, setTimeout, setInterval, console, global, process, module, exports
 ```
 
 ```go
@@ -118,6 +123,134 @@ import "os"
 func Hello() {
 }
 ```
+
+#### Current dir
+
+```js
+__dirname
+```
+
+```go
+os.Getwd()
+```
+
+#### function
+
+```js
+function add (a, b) {
+    return a + b;
+}
+
+let add = (a, b) => {return a + b;}
+```
+
+```go
+func add(a, b int) int {
+    return a + b
+}
+// multiple return value
+func openfile (path string) (string, error) {
+    return "hello", nil
+}
+// rest params
+func params (a, b int, ...string) int {
+
+}
+```
+
+#### array
+
+```js
+var a = [1, 2, 3];
+```
+
+```go
+// array has an specific length
+var a [3]int = {1, 2, 3}
+// slice's length can change dynamic
+var a []int = {1, 2, 3}
+```
+
+#### object
+
+```js
+var a = {key1: 1, key2: 'hello', key3: true, key4: [], key5: {}}
+```
+
+```go
+// map's value has same data type
+var b map[string]int = {"k1": 1, "k2": 2, "k3": 3}
+// struct
+type A struct{
+    k1 int
+    k2 string
+    k3 bool
+    k4 []int
+    k5 struct{}
+}
+var b A = {1, "hello", false, {}, {}}
+```
+
+#### if/else
+
+```js
+if (condition) {
+
+} else {
+
+}
+```
+
+```go
+if condition {
+
+} else if condition {
+
+}
+```
+
+#### loops
+
+```js
+for (initialisation; condition; post) {
+}
+for (var i = 0; i < 10; i++) {
+
+}
+```
+
+```go
+for initialisation; condition; post {
+}
+for var i = 0; i < 10; i++ {
+
+}
+// infinite loop
+for {
+}
+```
+
+
+#### 遍历
+
+```js
+for (var i in array) {
+    console.log(i, array[i]);
+}
+// ES6
+for (var t of iterator) {
+    console.log(t)
+}
+```
+
+
+```go
+//
+for key, val := range mapObject {
+
+}
+```
+
 
 
 
