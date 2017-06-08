@@ -92,7 +92,7 @@ a, _ = os.Open("./file")
 // 其中“类型”或“= 表达式”两个部分可以省略其中的一个。如果省略的是类型信息，那么将根据初始化表达式来推导变量的类型信息。如果初始化表达式被省略，那么将用零值初始化该变量
 ```
 
-#### 内建函数或变量
+#### builtin functions
 
 ```js
 __dirname, setTimeout, setInterval, console, global, process, module, exports
@@ -231,7 +231,7 @@ for {
 ```
 
 
-#### 遍历
+#### iterate
 
 ```js
 for (var i in array) {
